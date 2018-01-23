@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Wordpress Basics</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Wordpress</h1>
+					<h3>Basic Things to know for Integrators</h3>
+					<p>
+						<small>Created by <a href="http://krds.facebook.com/narendran.s.krds" target="_blank">Narendran S</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+					<ul>
+						<li><a href="#/2/" class="agLink">Intallation</a></li>
+						<li><a href="#/3/" class="agLink">Themes - Folders & Files</a></li>
+						<li><a href="#/4/" class="agLink">Menu & Links</a></li>
+						<li><a href="#/5/" class="agLink">Editors Basics</a></li>
+						<li><a href="#/6/" class="agLink">Post - Editor & Files</a></li>
+						<li><a href="#/7/" class="agLink">Pages - Editor & Files</a></li>
+					<ul>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Intallation in Localhost</h2>
+						<h3>Step 1:</h3>
+						<ol>
+							<li>Download and unzip the <a href="https://wordpress.org/latest.zip" target="_blank">Latest WordPress package</a></li>
+							<li>Drop the files in your root folder.</li>
+							<li>Enter your root path in the browser</li>
+						</ol>
+						<p>
+							<a href="#/2/1" class="navigate-down">
+								<img width="178" height="238" data-src="img/arrow-down.png" alt="Down arrow">
+							</a>
+						</p>
+					</section>
+					<section>
+						<h2>Step 2:</h2>
+						<ol>
+							<li>When you entered correct root path in the browser, wordpress redirects you to the installation page.</li>
+							<li>You have to create one DB for this particular wordpress build. Goto <a href="http://localhost/phpmyadmin/" target="_blank">http://localhost/phpmyadmin/</a></li>
+							<li>Add a new database in dashboard page and add an user account details in privileges tab.</li>
+							<li>Come again to the browser and Enter All the DB details. Click Install.</li>
+						</ol>
+						<a href="#/2/2" class="navigate-down">
+							<img width="178" height="238" data-src="img/arrow-down.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Step 3:</h2>
+						<ol>
+							<li>After Entering DB details, There will be a configuration page where you can give your site title and admin username and password</li>
+							<li>Once you submit the form, You will redirect to wordpress admin login page.</li>
+							<li>Login with mentioned username and password you have given in the form. That's It !!</li>
+						</ol>
+					</section>
+					<section>
+						<h2>Admin Settings</h2>
+						<p>Main settings for your wordpress site can be done in wp-admin > settings page.</p>
+						<ol>
+							<li>Site Title & Tagline and URL settings in Settings > General</li>
+							<li>Home page and posts settings in Settings > Reading</li>
+							<li>Comments Settings in Settings > Discussion</li>
+							<li>Post Images Settings in Settings > Media</li>
+							<li>Post Links Settings in Settings > Permalinks</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Themes - Folders & Basics</h2>
+						<p>As per wordpress standard you are allowed to edit only the wp-content folder only, as this will helpful for the client can update the wordpress anytime.</p>
+						<p>in wp-content -> themes folder you can add/remove/modify your wordpress themes.</p>
+						<p>Go to appearance->themes page and select/activate your theme</p>
+						<a href="#/3/1" class="navigate-down">
+							<img width="178" height="238" data-src="img/arrow-down.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>wp-content > themes folder</h2>
+						<p>By default, wordpress comes with three themes TwentyFourteen, TwentyFifteen and TwentySixteen</p>
+						<p>Copy & Paste one of the theme and rename it to your site title</p>
+						<p>Add/Replace screenshot.png in your theme folder.</p>
+						<p>goto wp-admin > appearance > themes page, you can see your screenshot there, clict to activate your theme</p>
+						<a href="#/3/2" class="navigate-down">
+							<img width="178" height="238" data-src="img/arrow-down.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h3>header.php - theme folder</h3>
+						<p>This will be common header file for all your wordpress FO Pags. By default header.php will be a direct file in your theme folder</p>
+						<p>Add your favicon and logo in this file and check it in the browser.</p>
+
+						<p class="codes">
+							<strong>Base path to include images, css & js:</strong> <small> - Ex: http://localhost/exp/mySite/wp-content/themes/twentysixteen/</small> <br/>
+							<code>&lt;?php echo get_template_directory_uri(); ?&gt;</code>
+						</p>
+						<p class="codes">
+							<strong>Base path for the menu:</strong> <small> - Ex: http://localhost/exp/mySite/</small><br/>
+							<code>&lt;?php echo home_url(); ?&gt;</code>
+						</p>
+
+						<a href="#/3/3" class="navigate-down">
+							<img width="178" height="238" data-src="img/arrow-down.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h3>functions.php - theme folder</h3>
+						<p>All your theme settings(DEV Oriented) available here like image thumbnails, external file links, menu locations, widgets, etc.,</p>
+						<p>You can link css and js files here as below.</p>
+						<p class="codes">
+							<strong>For CSS:</strong><br/>
+							<code>wp_enqueue_style( $handle, $src, $deps, $ver, $media = 'all' );</code>
+							<small>Ex: wp_enqueue_style( 'form', get_template_directory_uri().'css/form.css', array(), false );</small>
+						</p>
+						<p class="codes">
+							<strong>For JS:</strong><br/>
+							<code>wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );</code>
+							<small>Ex: wp_enqueue_script( 'form', get_template_directory_uri().'js/form.js', ['jQuery'], '1.2', true );</small>
+						</p>
+						<a href="#/3/4" class="navigate-down">
+							<img width="178" height="238" data-src="img/arrow-down.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h3>style.css - theme folder</h3>
+						<p>This will be the common stylesheet file for any of your wordpress theme. By default style.css will be a direct file in your theme folder</p>
+						<p>No need to include this style, as it was already included in functions.php</p>
+						<a href="#/3/5" class="navigate-down">
+							<img width="178" height="238" data-src="img/arrow-down.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h3>js/functions.js - theme folder</h3>
+						<p>This will be the common script file for any of your wordpress theme. By default there will be mobile menu toggle functions, comment functions and theme related functions available.</p>
+						<p>No need to include this js, as it was already included in functions.php</p>
+						<a href="#/3/6" class="navigate-down">
+							<img width="178" height="238" data-src="img/arrow-down.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h3>frontpage.php - theme folder</h3>
+						<p>This will be your custom home page. You have add to this in your theme folder, if it's not there.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Menu - Admin</h2>
+						<p>You can add your menu in wp-admin > appearnce > menu.</p>
+						<ol>
+							<li>Give a menu name in add menu input box and click on the add menu button</li>
+							<li>Add links from left sidebar</li>
+							<li>You can change the positions of the menu link by dragging on it</li>
+							<li>You can give your own class to your menu link in Screen Options Menu (placed in top right)</li>
+						</ol>
+					</section>
+					<section>
+						<h2>Menu - Code</h2>
+						<p>In your file you can call the below code. It will generate links in << ul > li > a >> layout</p>
+						<p class="codes">
+							<code>
+								&lt;?php<br/>
+								&nbsp;&nbsp;wp_nav_menu( array(<br/>
+								&nbsp;&nbsp;&nbsp;&nbsp;'theme_location' => 'primary',<br/>
+								&nbsp;&nbsp;&nbsp;&nbsp;'menu_class'     => 'mainMenu',<br/>
+								&nbsp;&nbsp;));<br/>
+								?&gt;
+							</code>
+						</p>
+					</section>
+					<section>
+						<h2>Links - Code</h2>
+						<p>As mentioned earlier you can use &lt;?php echo base_url; &gt; to print site url and you can add your inline link using this.</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Editors Basics</h2>
+					<p>There is an auto generated &lt;p&gt; & &lt;br/&gt; issue in wordpress editor. To avoid this:</p>
+					<ol>
+						<li>Keep your texts in block elements like div, p, h1-h6. Don't add new line for inline elements like img, a, span.,</li>
+						<li>Don't wrap a text line yourself unless you nedd a break tag there.</li>
+						<li>Don't add comments in editor. Then your comments also generated with &lt;p&gt; tag.</li>
+						<li>When you insert an image, make sure it was inside a figure tag or any block elements. Don't add images in the new line. Remove width and height from the img element.</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<h2>Posts</h2>
+						<p>You can add your pages in wp-admin > posts > add new.</p>
+						<ol>
+							<li>Give the post title in the title inputbox. It represents post title as well as the post link and also in any post lists</li>
+							<li>Add some content in description box and publish the post.</li>
+							<li>You can set the post feature image in Featured Image sidebar</li>
+							<li>You can get the post link under title input box</li>
+							<li>You can add categories and tags in respective sidebars.</li>
+						</ol>
+					</section>
+					<section>
+						<h2>Posts - Code</h2>
+						<ol>
+							<li>By default page template will be in the theme folder > single-post.php</li>
+							<li>the_post_thumbnail() - represents fetaured image of the post</li>
+							<li>the_title() - represents the title of the post</li>
+							<li>the_content() - represents the description/content of the post</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Pages</h2>
+						<p>You can add your pages in wp-admin > pages > add new.</p>
+						<ol>
+							<li>Give the page title in the title inputbox. It represents page title as well as page link and some times as page template too :)</li>
+							<li>Add some content in description box and publish the page.</li>
+							<li>You can get the page link under title input box</li>
+							<li>You can page template in Parent select box in the Page Attributes sidebar.</li>
+						</ol>
+					</section>
+					<section>
+						<h2>Pages - Code</h2>
+						<ol>
+							<li>By default page template will be in the theme folder > page.php</li>
+							<li>You can create a new page like page-contact.php and create a page in the back office with the title contact. Then the page will take page-contact.php only</li>
+							<li>You can create any page-name.php and give << //Template Name: Plain Text >> in the first line of the page. Then you can select this page template in admin</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<h2>Task</h2>
+					<ol>
+						<li>Install new wordpress package and give site title as 'KRDS CSS'</li>
+						<li>Create krds theme folder and apply this theme to your site</li>
+						<li>Add Home Page, About Us Page and blogs page</li>
+						<li>Add few posts and show it in blogs page</li>
+						<li>Create & add Menu with available pages links.</li>
+						<li>Remove unwanted codes you think and make it live !!</li>
+					</ol>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="https://www.youtube.com/watch?v=6oLh400ME78" target="_blank">Wordpress Installation Guidelines</a> <br>
+						- <a href="https://codex.wordpress.org/WordPress_Lessons" target="_blank">Wordpress Codex</a>
+						- <a href="https://css-tricks.com/snippets/wordpress/" target="_blank">Wordpress PHP Snippets</a>
+						- <a href="https://github.com/hakimel/reveal.js" target="_blank">Reveal.js</a>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+			});
+
+		</script>
+
+	</body>
+</html>
